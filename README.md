@@ -8,7 +8,7 @@ chmod +x duo-centos/duo_setup.sh
 ```
 3. Run the script 
 ```
-./duo_setup.sh
+duo-centos/./duo_setup.sh
 ```
 4. Fix all the errors and run it again.
 5. Repeat until it works ;-P
