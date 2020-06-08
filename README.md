@@ -10,5 +10,6 @@ chmod +x duo-centos/duo_setup.sh
 ```
 duo-centos/./duo_setup.sh
 ```
-4. Fix all the errors and run it again.
-5. Repeat until it works ;-P
+4. Enter Duo config info when prompted
+5. Fix all the errors and run it again
+6. Repeat until it works ;-P
