@@ -1,3 +1,16 @@
+A simple and ugly script to help automate some of the deployment for Duo with Linux servers.
+This is written specifally for and tested only on CentOS 7.x minimal servers.
+
+Prerequisites:
+1. The UNIX application should already be configured in the Duo portal.
+2. The server will need internet access (repo updates, API access to Duo, etc)
+3. git will need to be installed first
+``` 
+sudo yum install git
+```
+
+
+
 1. Clone the repo 
 ```
 git clone https://github.com/tylerx626/duo-centos
