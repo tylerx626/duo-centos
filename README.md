@@ -9,6 +9,8 @@ Prerequisites:
 sudo yum install git
 ```
 
+Note: I have only tested with local auth. 
+
 
 
 1. Clone the repo 
@@ -30,4 +32,5 @@ duo-centos/./duo_setup.sh
 
 Future updates wish-list:
 1. Error-checking
+2. SSH key-based auth
 
