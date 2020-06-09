@@ -91,6 +91,18 @@ yum install -y duo_unix
 
 #cleanup
 sudo rm duo_unix-latest.tar.gz
+sudo rm -r lib
+sudo rm -r libtool
+sudo rm -r duo_unix_support/
+sudo rm -r login_duo/
+sudo rm -r compat/
+sudo rm -r config.*
+sudo rm -r pam_duo/
+sudo rm -r stamp
+sudo rm -r stamp-h1
+sudo rm -r test*
+sudo rm -r Makefile
+ 
 
 #Now test and make sure auth is working.
 
