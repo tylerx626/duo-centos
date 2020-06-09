@@ -37,12 +37,12 @@ tar zxf duo_unix-latest.tar.gz -C /opt/duo_unix_latest --strip-components=1
 #edit /etc/duo/pam_duo.conf with ikey, secret key, and hostname
 #prompt user for input and add config below...
 
-echo Enter the Duo integration key...
-read $ikey
-echo Enter the Duo secret key...
-read $skey
-echo Enter the Duo API hostname...
-read $host
+echo "Enter the Duo integration key..."
+read ikey
+echo "Enter the Duo secret key..."
+read skey
+echo "Enter the Duo API hostname..."
+read host
 
 echo "[duo]" > /etc/duo/pam_duo.conf
 echo "; Duo integration key" >> /etc/duo/pam_duo.conf
