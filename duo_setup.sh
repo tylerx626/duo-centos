@@ -58,15 +58,15 @@ echo "https_timeout=30" >> /etc/duo/pam_duo.conf
 
 #make copy of sshd_config an replace with Duo config added
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.old
-sudo cp duo_sshd_config /etc/ssh/sshd_config
+sudo cp duo-centos/duo_sshd_config /etc/ssh/sshd_config
 
 #make copy of PAM sshd and replace with Duo config added
 sudo cp /etc/pam.d/sshd /etc/pam.d/sshd.old
-sudo cp duo_pamd_sshd /etc/pam.d/sshd
+sudo cp duo-centos/duo_pamd_sshd /etc/pam.d/sshd
 
 #make copy of PAM system-auth and replace with Duo config added
 sudo cp /etc/pam.d/system-auth /etc/pam.d/system-auth.old
-sudo cp duo_pamd_system-auth /etc/pam.d/system-auth
+sudo cp duo-centos/duo_pamd_system-auth /etc/pam.d/system-auth
 
 #SELinux may block PAM from contacting Duo, so adjust to allowing outgoing HTTP connections
 sudo make -C /opt/duo_unix_latest/pam_duo semodule
