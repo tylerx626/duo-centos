@@ -14,7 +14,8 @@ wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
 
 #extract downloaded tarball and change directory
 mkdir /opt/duo_unix_latest || rm -r /opt/duo_unix_latest || mkdir /opt/duo_unix_latest
-tar zxf duo_unix-latest.tar.gz -C /opt/duo_unix_latest
+tar zxf duo_unix-latest.tar.gz -C /opt/duo_unix_latest --strip-components=1
+
 
 #build and install duo_unix with PAM support
 /opt/duo_unix_latest/./configure --with-pam --prefix=/usr && make && sudo make -C /opt/duo_unix_latest install
