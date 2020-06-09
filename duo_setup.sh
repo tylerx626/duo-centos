@@ -10,15 +10,29 @@ yum -y groupinstall "Development Tools"
 
 
 #download latest Duo version
-wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
+if [ test -f duo_unix-latest.tar.gz ]
+then
+    echo "File duo_unix-latest.tar.gz exists"
+else
+    echo "Downloaded latest duo_unix file"
+    wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
+fi
 
-#extract downloaded tarball and change directory
-mkdir /opt/duo_unix_latest || rm -r /opt/duo_unix_latest || mkdir /opt/duo_unix_latest
+#check if install directory exists and mkdir if not
+if [ -d "/opt/duo_unix_latest" ] 
+then
+    echo "Directory /opt/duo_unix_latest exists." 
+else
+    echo "Error: Directory /opt/duo_unix_latest/ does not exist."
+    mkdir /opt/duo_unix_latest
+fi
+
+#extract downloaded tarball and change directory 
 tar zxf duo_unix-latest.tar.gz -C /opt/duo_unix_latest --strip-components=1
 
 
 #build and install duo_unix with PAM support
-/opt/duo_unix_latest/./configure --with-pam --prefix=/usr && make && sudo make -C /opt/duo_unix_latest install
+/opt/duo_unix_latest/./configure --with-pam --prefix=/usr && make -C /opt/duo_unix_latest && sudo make -C /opt/duo_unix_latest install
 
 #edit /etc/duo/pam_duo.conf with ikey, secret key, and hostname
 #prompt user for input and add config below...
@@ -75,6 +89,8 @@ echo "gpgcheck=1" >> /etc/yum.repos.d/duosecurity.repo
 rpm --import https://duo.com/DUO-GPG-PUBLIC-KEY.asc
 yum install -y duo_unix
 
+#cleanup
+sudo rm duo_unix-latest.tar.gz
 
 #Now test and make sure auth is working.
 
